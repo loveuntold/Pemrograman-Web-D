@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TM2</title>
+    <style>
+        .kotak{
+            border: black thick solid;
+        }  
+
+        #parent{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .kotakkecil{
+            margin: 5px;
+        }
+
+        #kotak2{
+            flex: 2;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div id="parent" class="kotak">
+        <div class="kotak kotakkecil">kotak 1</div>
+        <div class="kotak kotakkecil" id="kotak2">kotak 2</div>
+        <div class="kotak kotakkecil">kotak 3</div>
+    </div>
+</body>
+</html>
