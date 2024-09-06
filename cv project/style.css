@@ -1,0 +1,107 @@
+body{
+    font-family: "Poppins", sans-serif;
+    background-color: #f9dc00;
+    height: 100%;
+    margin: 0;
+}
+
+/* BAGIAN ATAS */
+.outline{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    position: absolute;
+    left: 24%;
+    top: 10%;
+
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 30px;
+    background-color: #ffffff;
+}
+
+.header{
+    background-color: #001287;
+    border-radius: 50px;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+#headersection{
+    display: flex;
+    flex-direction: row;
+}
+
+.kotak{
+    align-content: center;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+
+#kotaktengah{
+    flex: 3;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
+    text-align: center;
+    align-content: center;
+    background-color: #e9e9e9;
+}
+
+.bulet{
+    border-radius: 50%;
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin: 10px;
+    display: inline-flex;
+}
+
+#buletred{
+    background-color: #ff0000;
+}
+
+#buletyellow{
+    background-color: #ffff00;
+}
+
+#buletgreen{
+    background-color: green;
+}
+
+/* PROFILE */
+.profile{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    /* border-radius: 50px; */
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.profileimg{
+    flex: 2;
+    /* border: 1px solid black; */
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+}
+
+.profiledesc{
+    flex: 3;
+    text-align: center;
+    padding: 5px;
+    line-height: 1;
+    /* border: 1px solid black; */
+}
+
+/* R. PENDIDIKAN */
+.box2{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    /* border-radius: 50px; */
+    border: 1px solid black;
+    padding: 10px;
+}
