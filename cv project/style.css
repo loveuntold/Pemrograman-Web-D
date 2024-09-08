@@ -1,6 +1,6 @@
 body{
     font-family: "Poppins", sans-serif;
-    background-color: #f9dc00;
+    background-color: #d5fbe4;
     height: 100%;
     margin: 0;
 }
@@ -17,7 +17,7 @@ body{
     border-radius: 20px;
     border: 1px solid black;
     padding: 30px;
-    background-color: #ffffff;
+    background-color: rgb(255, 247, 176);
 }
 
 .header{
@@ -75,9 +75,9 @@ body{
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    /* border-radius: 50px; */
     border: 1px solid black;
     padding: 10px;
+    background-color: white;
 }
 
 .profileimg{
@@ -101,7 +101,60 @@ body{
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    /* border-radius: 50px; */
+    /* border: 1px solid black; */
+
+}
+
+.education{
+    flex: 2;
+    border: 1px solid black;
+    width: 20%;
+    text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    line-height: 1.5;
+    margin-right: 20px;
+    background-color: white;
+}
+
+.box3{
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+}
+
+.programminglang{
+    flex: 2;
     border: 1px solid black;
     padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: white;
+}
+
+.favsong{
+    flex: 2;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: white;
+
+}
+
+.article-container {
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.icon {
+    cursor: pointer;
+    height: 3rem;
+}
+.pic {
+    height: 16rem;
 }
