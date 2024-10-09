@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Donut</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                poppins: ['Poppins', 'sans-serif'],
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-pink-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="text-2xl font-bold text-pink-800">Daily Donut.</div>
+            <div class="hidden md:flex space-x-6 items-center text-lg">
+                <a href="./index.html" class="text-pink-800 hover:text-rose-500">Home</a>
+                <a href="./shop.html" class="text-pink-800 hover:text-rose-500">Shop</a>
+                <a href="./about.html" class="text-pink-800 hover:text-rose-500">About Us</a>
+                <a href="./contact.html" class="text-pink-800 hover:text-rose-500">Contact</a>
+                <a href="#" id="cart-icon" class="text-pink-800 hover:bg-rose-500 hover:scale-105 rounded-xl p-2">
+                    <i class='bx bx-cart text-pink-800' style='font-size: 24px;'></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Us Section -->
+    <section class="bg-white py-16">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10 items-stretch px-4">
+            
+            <!-- Contact Form -->
+            <div class="bg-gray-50 shadow-lg p-8 rounded-lg flex flex-col h-full">
+                <h2 class="text-3xl font-bold mb-4 text-pink-800">Contact Us</h2>
+                <p class="mb-6 text-gray-600">Feel free to reach out to us for any inquiries, questions, or feedback. We're here to help you!</p>
+                <form action="#" method="POST" class="flex-grow">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="First Name" class="p-3 border border-gray-300 rounded-lg" required>
+                        <input type="text" placeholder="Last Name" class="p-3 border border-gray-300 rounded-lg" required>
+                    </div>
+                    <input type="email" placeholder="Email Address" class="w-full p-3 mt-4 border border-gray-300 rounded-lg" required>
+                    <input type="text" placeholder="Subject" class="w-full p-3 mt-4 border border-gray-300 rounded-lg">
+                    <textarea placeholder="Comments / Questions" class="w-full p-3 mt-4 border border-gray-300 rounded-lg h-32" required></textarea>
+                    <button type="submit" class="mt-6 w-full bg-pink-600 text-white py-3 rounded-lg hover:bg-pink-700 transition duration-300">Submit</button>
+                </form>
+            </div>
+    
+            <!-- Contact Information -->
+            <div class="bg-pink-800 shadow-lg p-8 rounded-lg text-white flex flex-col h-full">
+                <h3 class="text-2xl font-bold mb-4">Contact Information</h3>
+                <p class="text-white mb-2">Feel free to get in touch with us using the details below:</p>
+                
+                <div class="flex items-center mb-4">
+                    <i class='bx bx-phone text-2xl mr-4'></i>
+                    <div>
+                        <p class="font-semibold">Phone</p>
+                        <p class="text-white">+62 812-3456-7890</p>
+                    </div>
+                </div>
+    
+                <div class="flex items-center mb-4">
+                    <i class='bx bx-envelope text-2xl mr-4'></i>
+                    <div>
+                        <p class="font-semibold">Email</p>
+                        <p class="text-white">csdailydonut@gmail.com</p>
+                    </div>
+                </div>
+    
+                <div class="flex items-center">
+                    <i class='bx bx-map text-2xl mr-4'></i>
+                    <div>
+                        <p class="font-semibold">Address</p>
+                        <p class="text-white">123 Keputih Street, Surabaya, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    
+
+   <!-- Cart Sidebar -->
+   <div id="cart-sidebar" class="fixed right-0 top-0 bg-white w-1/3 h-full shadow-lg hidden z-50 p-6 flex flex-col">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold">Your Cart</h2>
+        <div class="flex space-x-4">
+            <i id="trash" class='bx bx-trash cursor-pointer'></i>
+            <i id="close-cart" class='bx bx-x bx-rotate-90 cursor-pointer'></i>
+        </div>
+    </div>
+
+    <div id="cart-items" class="flex-grow mb-4 overflow-auto">
+        <ul id="cart-list" class="space-y-4"></ul>
+    </div>
+
+    <div class="border-t pt-4 flex justify-between items-center mt-auto">
+        <p id="total-price" class="text-2xl font-bold">Total: Rp 0.00</p>
+        <button class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition">Buy Now</button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-pink-800 text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- About Us -->
+            <div class="">
+                <h2 class="text-xl font-bold mb-4">About Us</h2>
+                <p class="text-gray-200 text-justify">We specialize in crafting delicious, handcrafted donuts made with the finest ingredients, ensuring every bite brings joy and sweetness to your day.</p>
+            </div>
+
+            <!-- Links -->
+            <div>
+                <h2 class="text-xl font-bold mb-4">Quick Links</h2>
+                <ul>
+                    <li><a href="./index.html" class="text-gray-200 hover:underline">Home</a></li>
+                    <li><a href="./shop.html" class="text-gray-200 hover:underline">Shop</a></li>
+                    <li><a href="./about.html" class="text-gray-200 hover:underline">About Us</a></li>
+                    <li><a href="./contact.html" class="text-gray-200 hover:underline">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h2 class="text-xl font-bold mb-4">Contact Us</h2>
+                <ul>
+                    <li class="text-gray-200">Email  : csdailydonut@gmail.com</li>
+                    <li class="text-gray-200">Phone  : +62 812-3456-7890</li>
+                    <li class="text-gray-200">Address : 123 Keputih Street, Surabaya, Indonesia</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 border-t border-pink-700 pt-4 text-center text-gray-200">
+            <p>&copy; 2024 Daily Donut. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="shop.js"></script>
+
+</body>
+</html>
