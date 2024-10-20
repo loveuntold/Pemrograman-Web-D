@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Name</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-green-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full">
+        <h1 class="text-2xl font-bold mb-4">Insert Name</h1>
+
+        <form id="nameForm" action="create.php" method="POST">
+            <label for="name" class="text-sm font-medium text-gray-700">Nama:</label>
+            <input type="text" id="name" name="name" class="border border-gray-300 p-2 rounded w-full mb-4" required>
+            
+            <button type="submit" class="bg-pink-500 text-white p-2 rounded w-full">Submit</button>
+            <!-- Success/error message for name submission -->
+            <div id="message" class="mt-4 text-center"></div>
+        </form>
+
+        <div id="updateSection" class="mt-4">
+            <hr class="my-4">
+            <h2 class="text-xl font-bold mb-2">Ubah Nama</h2>
+            <form id="updateForm" action="update.php" method="POST">
+                <label for="oldName" class="text-sm font-medium text-gray-700">Nama yang ingin diubah:</label>
+                <input type="text" id="oldName" name="oldName" class="border border-gray-300 p-2 rounded w-full mb-4" required>
+
+                <label for="newName" class="text-sm font-medium text-gray-700">Nama baru:</label>
+                <input type="text" id="newName" name="newName" class="border border-gray-300 p-2 rounded w-full mb-4" required>
+
+                <button type="submit" class="bg-blue-500 text-white p-2 rounded w-full">Update</button>
+                <!-- Success/error message for name update -->
+                <div id="updateMessage" class="mt-4 text-center"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function submitForm(event){
+        event.preventDefault(); 
+
+        const form = document.getElementById('nameForm');
+        const formData = new FormData(form);
+
+        fetch('create.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            const messageDiv = document.getElementById('message');
+            
+            if(data.startsWith('success:')){
+                messageDiv.innerHTML = `<span class="text-green-500">${data.replace('success:', '')}</span>`;
+            } else if (data.startsWith('error:')) {
+                messageDiv.innerHTML = `<span class="text-red-500">${data.replace('error:', '')}</span>`;
+            }
+        })
+        .catch(error => {
+            document.getElementById('message').innerHTML = `<span class="text-red-500">Error: ${error}</span>`;
+        });
+    }
+
+        function updateName(event){
+            event.preventDefault();
+
+            const form = document.getElementById('updateForm');
+            const formData = new FormData(form);
+
+            fetch('update.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                const updateMessageDiv = document.getElementById('updateMessage');
+
+                if(data.startsWith('success:')){
+                    updateMessageDiv.innerHTML = `<span class="text-green-500">${data.replace('success:', '')}</span>`;
+                } else if(data.startsWith('error:')){
+                    updateMessageDiv.innerHTML = `<span class="text-red-500">${data.replace('error:', '')}</span>`;
+                }
+            })
+            .catch(error => {
+                document.getElementById('updateMessage').innerHTML = `<span class="text-red-500">Error: ${error}</span>`;
+            });
+        }
+
+        document.getElementById('nameForm').addEventListener('submit', submitForm);
+        document.getElementById('updateForm').addEventListener('submit', updateName);
+    </script>
+
+</body>
+</html>
